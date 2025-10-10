@@ -1,0 +1,383 @@
+/* 
+---------------------------------------------------
+
+This CSS File active on these Page: 
+1. archive-course.php
+2. taxonomy-speaker.php
+3. page-speakers.php
+4. search.php
+
+---------------------------------------------------
+*/
+
+/* ----------------------------- Global ----------------------------- */
+.container {
+    &.archive-header {
+        padding: 60px 60px 0 60px; /* Desktop */
+        margin-top: 90px;
+        @media (max-width: 1240px) { padding: 60px 30px 0 30px; } /* Tablet */
+        @media (max-width: 767px) { padding: 20px 20px 0 20px; margin-top: 60px; } /* Phone */
+    }
+
+    &.archive-content {
+        padding: 80px 60px; /* Desktop */
+        @media (max-width: 1240px) { padding: 80px 30px; } /* Tablet */
+        @media (max-width: 767px) { padding: 40px 20px; } /* Phone */
+
+        .title {
+            display: flex;
+            font-family: "LINESeedSansTH", Sans-serif;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.2em;
+            color: #FFFFFF;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+    }
+    
+    .inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        @media (max-width: 1240px) { max-width: 1024px; } /* Tablet */
+    }
+}
+
+.archive-box {
+    font-family: "LINESeedSansTH", Sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #6d6d6d;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    
+    &.bg-ai {
+        background-image: url("/wp-content/uploads/2025/08/futuristic-ai-chip-circuit-board-scaled.webp");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &::before {
+            background-image: linear-gradient(200deg, #00000000 0%, #000000 62%);
+        }
+    }
+    
+    &.bg-orange {
+        background-image: url("/wp-content/uploads/2025/08/9563801-scaled.webp");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        &::before {
+            background-image: linear-gradient(180deg, #00000000 0%, #000000 100%);
+            opacity: 1;
+        }
+    }
+
+    /* only each speaker */
+    &.speaker {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: end;
+        gap:24px;
+
+        .archive-thumbnail {
+            max-width: 270px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: -40px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    &.service {
+        .archive-detail {
+            .archive-title { margin-bottom: 4px; }
+        }
+    }
+
+    /* gradient overlay */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        background-image: linear-gradient(180deg, #00000000 50%, #000000 100%);
+        opacity: 0.5;
+        z-index: 0;
+    }
+
+    .archive-detail {
+        display: flex;
+        flex-direction: column;
+
+        .archive-title, .archive-sub-title, .archive-description {
+            position: relative;
+            z-index: 1;
+        }
+
+        .archive-title {
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.2em;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .archive-sub-title {
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.2em;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .archive-description {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5em;
+            color: #c5c5c5;
+            max-width: 600px;
+        }
+    }
+}
+
+
+/* ----------------------------- grid listing is only for post or course ----------------------------- */
+.tax-title {
+    font-family: "LINESeedSansTH", Sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #FFFFFF;
+    width: 100%;
+    margin: 60px 0 30px 0;
+
+    &:first-child { margin-top: 0; }
+}
+.archive-box, .grid-listing, .grid-speaker-listing { 
+    position: relative; 
+    z-index: 1;
+}
+.grid {
+    display: grid;
+    gap: 30px;
+}
+.listing{
+    display: flex;
+    flex-direction: column;
+}
+.title-listing{
+    font-family: "LINESeedSansTH", Sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+.description-listing, .excerpt-listing  {
+    font-family: "LINESeedSansTH", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+.grid-listing {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    .listing {
+        border-radius: 20px;
+        overflow: hidden;
+
+        &:hover img { scale: 1.1; }
+
+        .thumbnail-listing {
+            overflow: hidden;
+
+            img {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 3 / 2;
+                object-fit: cover;
+                object-position: top;
+                transition: 0.3s all ease;
+            }
+        }
+
+        .content-listing {
+            padding: 25px;
+            background-color: #eeeeee;
+            flex: 1;
+
+            .title-listing {
+                color: #0a0a0a;
+                transition: 0.3s all ease;
+
+                &:hover { color: #f36523; }
+            }
+
+            .excerpt-listing {
+                margin: 8px 0 0 0;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
+}
+
+
+
+/* ----------------------------- for speakers page ----------------------------- */
+
+/* gradient circle background */
+.full-circle-bg {
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    width: 2400px;
+    margin: -200px;
+    z-index: 0;
+}
+
+/* grid speaker listing is only for All speakers page */
+.grid-speaker-listing {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 60px;
+
+    .listing {
+        &:hover img { scale: 1.1; }
+        
+        .thumbnail-listing {
+            height: 350px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, rgba(109, 109, 109, 1) 0%, rgba(65, 64, 66, 1) 100%);
+            box-shadow: 4px 4px 20px 4px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 4px 4px 20px 4px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 4px 4px 20px 4px rgba(0,0,0,0.1);
+
+            a.img-link { 
+                display: flex;
+                height:100%; 
+                
+                img {
+                    position: relative;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                    margin: 30px 0 -30px 0;
+                    transition: 0.3s all ease;
+                }
+            }
+        }
+
+        .content-listing{
+            .title-listing {
+                color: #f36523;
+                text-align: center;
+                margin-bottom:10px;
+            }
+            .description-listing {
+                color: #FFFFFF;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+
+/* ---------------------------- media query ---------------------------- */
+@media (max-width: 1366px) {
+
+}
+
+@media (max-width: 1240px) {
+    .grid { 
+        gap: 24px; 
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1023px) {
+    .full-circle-bg { top: 0; }
+    .grid { 
+        gap: 16px; 
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-speaker-listing { grid-row-gap: 30px; }
+    .grid-listing {
+        .listing {
+            .content-listing { padding: 18px; }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .full-circle-bg { top: 20%; right:0; }
+
+    .container.archive-content .title { 
+        font-size: 24px; 
+        margin-bottom: 24px;
+    }
+
+    .archive-box {
+        padding: 20px;
+        min-height: 300px;
+        
+        .archive-detail {
+            .archive-title { font-size: 32px; }
+            .archive-sub-title { font-size: 20px; }
+            .archive-description { font-size: 16px; }
+        }
+
+        &.speaker { 
+            .archive-detail {
+                position:absolute;
+                width:100%;
+                right: 0;
+                bottom:0;
+                padding:20px;
+                background: linear-gradient(180deg,rgba(109, 109, 109, 0) 0%, rgba(65, 64, 66, 1) 100%);
+            }
+        }
+    }
+    
+    .grid { grid-template-columns: repeat(1, 1fr); }
+
+    .grid-speaker-listing{ 
+        max-width: 300px;
+        
+        .listing .thumbnail-listing {
+            max-height: 300px;
+            
+            a.img-link img { max-height: 300px; }
+        }
+    }
+
+    .tax-title { 
+        font-size: 24px; 
+        margin: 40px 0 20px 0;
+    }
+    .title-listing { font-size: 18px; margin-bottom: 5px!important; }
+    .description-listing, .excerpt-listing { font-size: 14px; }
+}
