@@ -25,7 +25,7 @@ $custom_query = new WP_Query($args);
 
 <div class="container archive-header">
     <div class="inner">
-        <div class="archive-box service bg-orange">
+        <div class="archive-box service bg-blue">
             <div class="archive-detail">
                 <h1 class="archive-title">
                     <?php _e('ผลการค้นหาของ', 'locale'); ?>: "<?php echo esc_html($search_term); ?>"
@@ -38,10 +38,15 @@ $custom_query = new WP_Query($args);
 <div class="container archive-content">
     <div class="inner">
     <?php    
-        $service_terms = array('training', 'system-implementation', 'consulting');
+        $service_terms = get_terms(array(
+            'taxonomy' => 'service',
+            'hide_empty' => false // ถ้าอยากให้รวม term ที่ไม่มี post ด้วย
+        ));
 
-        // วนลูปแต่ละ taxonomy term
-        foreach ($service_terms as $term_slug) {
+        foreach ($service_terms as $term) {
+            $term_slug = $term->slug;
+            $term_name = $term->name;
+
             $product_query = new WP_Query(array(
                 'post_type' => 'product',
                 's' => $search_term,
@@ -58,7 +63,7 @@ $custom_query = new WP_Query($args);
             ));
 
             if ($product_query->have_posts()) {
-                echo '<h2 class="tax-title">หมวดหมู่บริการ: ' . esc_html($term_slug) . '</h2>';
+                echo '<h2 class="tax-title">หมวดหมู่: ' . esc_html($term_name) . '</h2>';
                 echo '<div class="grid grid-listing">';
                 while ($product_query->have_posts()) : $product_query->the_post();
                     $file = get_field('pdf_attachment');

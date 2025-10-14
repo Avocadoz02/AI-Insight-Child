@@ -82,6 +82,17 @@ This CSS File active on these Page:
             opacity: 1;
         }
     }
+    &.bg-blue {
+        background-image: url("/wp-content/uploads/2025/10/9109113-scaled.webp");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        &::before {
+            background-image: linear-gradient(180deg, #00000000 0%, #000000 100%);
+            opacity: 1;
+        }
+    }
 
     /* only each speaker */
     &.speaker {

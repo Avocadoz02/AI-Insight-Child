@@ -24,7 +24,7 @@ function shared_styles_for_special_pages() {
             'special-style',
             get_stylesheet_directory_uri() . '/special-page-style.css',
             array(),
-            '1.0'
+            '1.1'
         );
     }
 }
