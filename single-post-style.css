@@ -1,0 +1,92 @@
+.container {
+    padding: 60px 60px 80px 60px; /* Desktop */
+    margin-top: 90px;
+    @media (max-width: 1240px) { padding: 60px 30px 0 30px; } /* Tablet */
+    @media (max-width: 767px) { padding: 20px 20px 0 20px; margin-top: 60px; } /* Phone */
+    
+    .inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        @media (max-width: 1240px) { max-width: 1024px; } /* Tablet */
+
+        .product-title {
+            display: flex;
+            font-family: "LINESeedSansTH", Sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2em;
+            color: #FFFFFF;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .product-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            gap: 40px;
+            @media (max-width: 767px) { flex-direction: column; gap: 20px; } /* Phone */
+
+            .product-image{
+                width: 70%;
+                @media (max-width: 767px) { width: 100%; } /* Phone */
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 3 / 2;
+                    object-fit: cover;
+                    object-position: top;
+                    border-radius: 20px;
+                }
+            } 
+
+            .btn-download {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: "LINESeedSansTH", Sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 1.2em;
+                padding: 14px 20px;
+                border-radius: 8px;
+                border: 1px solid #FFFFFF;
+
+                .btn-text {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    white-space: nowrap;
+                    z-index: 1;
+                    color: #FFFFFF;
+
+                    &:before {
+                        content: url(/wp-content/uploads/2025/07/ai_svg.svg);
+                        height: 24px;
+                        margin-right: 12px;
+                    }
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(180deg, rgba(243, 101, 35, 0.2) 0%, rgba(243, 101, 35, 1) 100%);
+                    opacity: 1;
+                    border-radius: 8px;
+                    transition: all .3s ease-in-out;
+                    z-index: 0;
+                }
+                &:hover {
+                    &:after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}

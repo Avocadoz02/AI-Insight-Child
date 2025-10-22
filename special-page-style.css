@@ -6,6 +6,7 @@ This CSS File active on these Page:
 2. taxonomy-speaker.php
 3. page-speakers.php
 4. search.php
+5. Home
 
 ---------------------------------------------------
 */
@@ -190,26 +191,8 @@ This CSS File active on these Page:
     display: grid;
     gap: 30px;
 }
-.listing{
-    display: flex;
-    flex-direction: column;
-}
-.title-listing{
-    font-family: "LINESeedSansTH", Sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.2em;
-}
-.description-listing, .excerpt-listing  {
-    font-family: "LINESeedSansTH", Sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5em;
-}
-
 .grid-listing {
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
 
     .listing {
         border-radius: 20px;
@@ -252,7 +235,27 @@ This CSS File active on these Page:
         }
     }
 }
+.home-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
 
+.listing{
+    display: flex;
+    flex-direction: column;
+}
+.title-listing{
+    font-family: "LINESeedSansTH", Sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+.description-listing, .excerpt-listing  {
+    font-family: "LINESeedSansTH", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
 
 
 /* ----------------------------- for speakers page ----------------------------- */
